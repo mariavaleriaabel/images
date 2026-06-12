@@ -43,6 +43,7 @@
 
     @media (pointer: coarse) { body { cursor: auto } }
 
+    /* ─── Custom cursor (fixed) ─── */
     #cursor {
       width: 12px;
       height: 12px;
@@ -60,12 +61,27 @@
       transform: translate(-50%, -50%);
     }
     #cursor.is-visible { opacity: 1 }
-    #cursor.is-active { width: 44px; height: 44px; background: transparent; border: 1px solid var(--white); }
+    #cursor.is-active {
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: 1px solid var(--white);
+    }
     @media (pointer: coarse) { #cursor { display: none } }
 
-    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); }
+    /* ─── Container ─── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
 
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.85s var(--ease-expo), transform 0.85s var(--ease-expo); }
+    /* ─── Reveal ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s var(--ease-expo), transform 0.85s var(--ease-expo);
+    }
     .reveal.visible { opacity: 1; transform: translateY(0) }
     .reveal--d1 { transition-delay: 0.12s }
     .reveal--d2 { transition-delay: 0.24s }
@@ -73,81 +89,346 @@
     .reveal--d4 { transition-delay: 0.48s }
     .reveal--d5 { transition-delay: 0.60s }
 
-    .t-label { font-family: var(--sans); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1; }
-    .t-body { font-family: var(--sans); font-size: clamp(0.88rem, 1.05vw, 0.98rem); font-weight: 300; line-height: 1.85; color: var(--dark); }
+    /* ─── Typography ─── */
+    .t-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .t-body {
+      font-family: var(--sans);
+      font-size: clamp(0.88rem, 1.05vw, 0.98rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--dark);
+    }
 
-    .btn { display: inline-block; padding: 1rem 2.5rem; font-family: var(--sans); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: none; cursor: none; transition: opacity 0.25s; }
+    /* ─── Button ─── */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: none;
+      transition: opacity 0.25s;
+    }
     .btn:hover { opacity: 0.65 }
+    .btn--black { background: var(--black); color: var(--white) }
     .btn--white { background: var(--white); color: var(--black) }
-    .btn--outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.5); }
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
     .btn--outline:hover { border-color: var(--white); opacity: 1 }
 
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.5s, backdrop-filter 0.5s; }
-    .nav--scrolled { background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); }
-    .nav__inner { display: flex; align-items: center; justify-content: space-between; padding-top: 1.75rem; padding-bottom: 1.75rem; }
-    .nav__logo { text-decoration: none; color: var(--white); font-size: 0.75rem; letter-spacing: 0.22em; font-family: var(--sans); font-weight: 500; }
-    .nav__link { text-decoration: none; color: rgba(255,255,255,0.6); font-size: 0.68rem; letter-spacing: 0.16em; font-family: var(--sans); font-weight: 500; text-transform: uppercase; transition: color 0.2s; }
+    /* ─── Nav ─── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      transition: background 0.5s, backdrop-filter 0.5s;
+    }
+    .nav--scrolled {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(12px);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.75rem;
+      padding-bottom: 1.75rem;
+    }
+    .nav__logo {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      font-family: var(--sans);
+      font-weight: 500;
+    }
+    .nav__link {
+      text-decoration: none;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      font-family: var(--sans);
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
     .nav__link:hover { color: var(--white) }
 
-    #hero { position: relative; min-height: 100svh; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: var(--sp-2xl); overflow: hidden; background: #111; }
-    .hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; z-index: 0; will-change: transform; }
-    .hero__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.1) 100%); z-index: 1; }
-    .hero__content { position: relative; z-index: 2; }
-    .hero__headline { font-family: var(--serif); font-size: clamp(3rem, 7.5vw, 7.5rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.02em; color: var(--white); max-width: 14ch; animation: slideUp 1s var(--ease-expo) 0.2s both; }
-    .hero__sub { margin-top: var(--sp-md); font-size: clamp(0.95rem, 1.3vw, 1.1rem); color: rgba(255,255,255,0.65); font-family: var(--sans); font-weight: 300; animation: slideUp 1s var(--ease-expo) 0.5s both; }
-    .hero__cta { margin-top: var(--sp-lg); animation: fadeIn 0.8s ease 0.9s both; }
+    /* ─── Hero ─── */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: var(--sp-2xl);
+      overflow: hidden;
+      background: #111;
+    }
+    .hero__photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      z-index: 0;
+      will-change: transform;
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.72) 0%,
+        rgba(0,0,0,0.25) 55%,
+        rgba(0,0,0,0.1) 100%
+      );
+      z-index: 1;
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero__headline {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 7.5vw, 7.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 14ch;
+      animation: slideUp 1s var(--ease-expo) 0.2s both;
+    }
+    .hero__sub {
+      margin-top: var(--sp-md);
+      font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+      color: rgba(255,255,255,0.65);
+      font-family: var(--sans);
+      font-weight: 300;
+      animation: slideUp 1s var(--ease-expo) 0.5s both;
+    }
+    .hero__cta {
+      margin-top: var(--sp-lg);
+      animation: fadeIn 0.8s ease 0.9s both;
+    }
 
-    @keyframes slideUp { from { opacity: 0; transform: translateY(40px) } to { opacity: 1; transform: translateY(0) } }
-    @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px) }
+      to   { opacity: 1; transform: translateY(0) }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to   { opacity: 1 }
+    }
 
-    #manifesto { background: var(--off-white); padding: var(--sp-2xl) 0; }
-    .grid-2 { display: grid; grid-template-columns: 1fr; gap: var(--sp-xl); }
-    @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; gap: var(--sp-lg) } }
-    .manifesto__line { font-family: var(--serif); font-style: italic; font-size: clamp(1.6rem, 3.2vw, 2.8rem); font-weight: 400; line-height: 1.25; color: var(--black); margin-bottom: clamp(0.5rem, 1.5vw, 1rem); }
+    /* ─── Manifesto ─── */
+    #manifesto {
+      background: var(--off-white);
+      padding: var(--sp-2xl) 0 var(--sp-lg);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-xl);
+    }
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; gap: var(--sp-lg) }
+    }
+    .manifesto__line {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.6rem, 3.2vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--black);
+      margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+    }
     .manifesto__line:last-of-type { margin-bottom: 0 }
-    .manifesto__img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; margin-top: var(--sp-lg); display: block; }
-    @media (min-width: 768px) { .manifesto__img { max-width: 80% } }
-    .sobre__label { display: block; color: var(--mid); margin-bottom: var(--sp-lg); }
+
+    .manifesto__img-wrap { align-self: start }
+    .manifesto__img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* ─── Sobre ─── */
+    #sobre {
+      background: var(--off-white);
+      padding: var(--sp-2xl) 0;
+    }
+    .grid-2--reverse .sobre__img-wrap { order: -1 }
+    @media (min-width: 768px) {
+      .grid-2--reverse .sobre__img-wrap { order: 0 }
+    }
+    .sobre__img-wrap { align-self: stretch; min-height: 50vw }
+    @media (min-width: 768px) { .sobre__img-wrap { min-height: unset } }
+    .sobre__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .sobre__col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .sobre__label {
+      display: block;
+      color: var(--mid);
+      margin-bottom: var(--sp-lg);
+    }
     .sobre__p { margin-bottom: var(--sp-md) }
     .sobre__p:last-child { margin-bottom: 0 }
 
+    /* ─── Cases ─── */
     #cases { padding: var(--sp-2xl) 0; background: var(--white) }
-    .cases__header { display: flex; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--border); padding-top: var(--sp-md); margin-bottom: var(--sp-xl); }
-    .cases__title { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--black); }
-    .grid-3 { display: grid; grid-template-columns: 1fr; gap: var(--sp-lg); }
-    @media (min-width: 768px) { .grid-3 { grid-template-columns: 1fr 1fr } }
-    @media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, 1fr) } }
-    .card { border-top: 1px solid var(--border); padding-top: var(--sp-md); transition: border-color 0.3s; }
+    .cases__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: var(--sp-md);
+      margin-bottom: var(--sp-xl);
+    }
+    .cases__title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--black);
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-lg);
+    }
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: 1fr 1fr }
+    }
+    @media (min-width: 1024px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr) }
+    }
+    .card {
+      border-top: 1px solid var(--border);
+      padding-top: var(--sp-md);
+      transition: border-color 0.3s;
+    }
     .card:hover { border-top-color: var(--black) }
     .card__label { color: var(--mid); margin-bottom: var(--sp-sm) }
-    .card__name { font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 400; line-height: 1.3; color: var(--black); margin-bottom: var(--sp-lg); }
+    .card__name {
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--black);
+      margin-bottom: var(--sp-lg);
+    }
     .card__block { margin-bottom: var(--sp-md) }
     .card__block:last-child { margin-bottom: 0 }
-    .card__block-label { font-family: var(--sans); font-size: 0.62rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; display: block; }
+    .card__block-label {
+      font-family: var(--sans);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
 
-    #contato { background: var(--black); color: var(--white); }
-    .contato__grid { display: grid; grid-template-columns: 1fr; min-height: 100svh; min-height: 100vh; }
-    @media (min-width: 768px) { .contato__grid { grid-template-columns: 1fr 1fr } }
-    .contato__text { display: flex; flex-direction: column; justify-content: center; padding: var(--sp-2xl) var(--gutter); }
-    .contato__headline { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--white); max-width: 16ch; margin-bottom: var(--sp-md); }
-    .contato__sub { color: rgba(255,255,255,0.5); font-size: clamp(0.9rem, 1.1vw, 1rem); margin-bottom: var(--sp-lg); }
-    .contato__photo-wrap { position: relative; overflow: hidden; min-height: 60vw; }
-    @media (min-width: 768px) { .contato__photo-wrap { min-height: unset } }
-    .contato__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: brightness(0.75); }
+    /* ─── Contato ─── */
+    #contato {
+      background: var(--black);
+      color: var(--white);
+    }
+    .contato__inner {
+      min-height: 100svh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--sp-2xl) var(--gutter);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .contato__headline {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--white);
+      max-width: 16ch;
+      margin-bottom: var(--sp-md);
+    }
+    .contato__sub {
+      color: rgba(255,255,255,0.5);
+      font-size: clamp(0.9rem, 1.1vw, 1rem);
+      margin-bottom: var(--sp-lg);
+    }
 
-    .footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.1); padding: var(--sp-md) 0; }
-    .footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--sp-sm); }
-    .footer__copy { color: rgba(255,255,255,0.25); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
-    .footer__social { display: flex; align-items: center; gap: 1.5rem; }
-    .social-link { display: inline-flex; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    /* ─── Footer ─── */
+    .footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: var(--sp-md) 0;
+    }
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--sp-sm);
+    }
+    .footer__copy {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .footer__social {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .social-link {
+      display: inline-flex;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
     .social-link:hover { color: var(--white) }
     .social-link svg { display: block }
   </style>
 </head>
 <body>
 
+  <!-- Cursor -->
   <div id="cursor" aria-hidden="true"></div>
 
+  <!-- Nav -->
   <nav class="nav" id="nav" role="navigation" aria-label="Principal">
     <div class="container nav__inner">
       <a href="#" class="nav__logo t-label">MAVA Studio</a>
@@ -155,17 +436,23 @@
     </div>
   </nav>
 
+  <!-- ── Seção 1 — Hero ── -->
   <section id="hero" aria-labelledby="hero-headline">
     <img class="hero__photo" src="hero.jpg" alt="" aria-hidden="true">
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="container hero__content">
-      <h1 class="hero__headline" id="hero-headline">Explore o que sua coleção ainda pode ser.</h1>
-      <p class="hero__sub">Antecipe direções visuais da sua coleção com IA.</p>
+      <h1 class="hero__headline" id="hero-headline">
+        Explore o que sua coleção ainda pode ser.
+      </h1>
+      <p class="hero__sub">
+        Antecipe direções visuais da sua coleção com IA.
+      </p>
       <a href="#cases" class="btn btn--outline hero__cta">Ver os projetos</a>
     </div>
   </section>
 
-  <section id="manifesto" aria-label="Manifesto e sobre a MAVA Studio">
+  <!-- ── Seção 2a — Manifesto ── -->
+  <section id="manifesto" aria-label="Manifesto MAVA Studio">
     <div class="container">
       <div class="grid-2">
         <div class="manifesto__col">
@@ -174,68 +461,140 @@
           <p class="manifesto__line reveal reveal--d2">Em referências.</p>
           <p class="manifesto__line reveal reveal--d3">Em possibilidades que ainda não existem.</p>
           <p class="manifesto__line reveal reveal--d4">E a sua coleção — por onde ela começa?</p>
-          <img class="manifesto__img reveal reveal--d5" src="manifesto.jpg" alt="Referência visual de coleção">
+        </div>
+        <div class="manifesto__img-wrap reveal reveal--d2">
+          <img class="manifesto__img" src="manifesto.jpg" alt="Referência visual de coleção">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Seção 2b — Sobre ── -->
+  <section id="sobre" aria-label="Sobre a MAVA Studio">
+    <div class="container">
+      <div class="grid-2 grid-2--reverse">
+        <div class="sobre__img-wrap reveal">
+          <img class="sobre__img" src="sobre.jpg" alt="MAVA Studio">
         </div>
         <div class="sobre__col">
           <span class="t-label sobre__label reveal">Sobre</span>
-          <p class="t-body sobre__p reveal reveal--d1">Acredito que a IA pode fortalecer o processo criativo, não substituí-lo.</p>
-          <p class="t-body sobre__p reveal reveal--d2">Depois de anos entre desenvolvimento de produto e equipes criativas, percebi que os maiores desafios da moda raramente são apenas operacionais.</p>
-          <p class="t-body sobre__p reveal reveal--d3">Criar uma coleção exige repertório, contexto, sensibilidade e tomada de decisão. A IA pode acelerar etapas, ampliar possibilidades e tornar ideias visíveis mais cedo. Mas seu maior potencial não está na automação — está na capacidade de apoiar o amadurecimento criativo.</p>
-          <p class="t-body sobre__p reveal reveal--d4">A MAVA Studio nasce desse encontro. Eu ajudo estilistas, designers e marcas a criar, pesquisar e visualizar com mais clareza e intenção.</p>
+          <p class="t-body sobre__p reveal reveal--d1">
+            Acredito que a IA pode fortalecer o processo criativo, não substituí-lo.
+          </p>
+          <p class="t-body sobre__p reveal reveal--d2">
+            Depois de anos entre desenvolvimento de produto e equipes criativas, percebi que os maiores desafios da moda raramente são apenas operacionais.
+          </p>
+          <p class="t-body sobre__p reveal reveal--d3">
+            Criar uma coleção exige repertório, contexto, sensibilidade e tomada de decisão. A IA pode acelerar etapas, ampliar possibilidades e tornar ideias visíveis mais cedo. Mas seu maior potencial não está na automação — está na capacidade de apoiar o amadurecimento criativo.
+          </p>
+          <p class="t-body sobre__p reveal reveal--d4">
+            A MAVA Studio nasce desse encontro. Eu ajudo estilistas, designers e marcas a criar, pesquisar e visualizar com mais clareza e intenção.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── Seção 3 — Cases ── -->
   <section id="cases" aria-label="Projetos">
     <div class="container">
-      <div class="cases__header"><h2 class="cases__title reveal">Projetos</h2></div>
+      <div class="cases__header">
+        <h2 class="cases__title reveal">Projetos</h2>
+      </div>
       <div class="grid-3">
+
         <article class="card reveal">
           <p class="t-label card__label">Pesquisa de Coleção<br>Marca de Moda Autoral, SP</p>
           <h3 class="card__name">De referência dispersa a direção visual coerente</h3>
-          <div class="card__block"><span class="card__block-label">Contexto</span><p class="t-body">Designer com três anos de marca própria chegou com moodboards contraditórios para a coleção de verão. Sem tema central definido, prazo de desenvolvimento pressionando.</p></div>
-          <div class="card__block"><span class="card__block-label">Processo</span><p class="t-body">Sessão de curadoria com IA para identificar tensões e convergências entre referências. Geração de 40+ imagens conceituais testando paletas, silhuetas e texturas. Mapeamento das escolhas em matriz visual.</p></div>
-          <div class="card__block"><span class="card__block-label">Resultado</span><p class="t-body">Direção de coleção consolidada em 2 dias. A designer entrou no desenvolvimento com clareza de paleta, três arquétipos de silhueta e um nome de coleção que emergiu do processo.</p></div>
+          <div class="card__block">
+            <span class="card__block-label">Contexto</span>
+            <p class="t-body">Designer com três anos de marca própria chegou com moodboards contraditórios para a coleção de verão. Sem tema central definido, prazo de desenvolvimento pressionando.</p>
+          </div>
+          <div class="card__block">
+            <span class="card__block-label">Processo</span>
+            <p class="t-body">Sessão de curadoria com IA para identificar tensões e convergências entre referências. Geração de 40+ imagens conceituais testando paletas, silhuetas e texturas. Mapeamento das escolhas em matriz visual.</p>
+          </div>
+          <div class="card__block">
+            <span class="card__block-label">Resultado</span>
+            <p class="t-body">Direção de coleção consolidada em 2 dias. A designer entrou no desenvolvimento com clareza de paleta, três arquétipos de silhueta e um nome de coleção que emergiu do processo.</p>
+          </div>
         </article>
+
         <article class="card reveal reveal--d1">
           <p class="t-label card__label">Visualização de Produto<br>Marca de Vestuário Feminino, MG</p>
           <h3 class="card__name">Ver a peça antes de ela existir</h3>
-          <div class="card__block"><span class="card__block-label">Contexto</span><p class="t-body">Equipe de produto precisava validar uma cartela de estampas inéditas com o time comercial antes de fechar a grade — sem nenhum piloto produzido.</p></div>
-          <div class="card__block"><span class="card__block-label">Processo</span><p class="t-body">Aplicação digital das estampas em silhuetas de produto via IA. Geração de variações de colorway e aplicação em fotos de contexto de uso — praia, dia a dia, evento.</p></div>
-          <div class="card__block"><span class="card__block-label">Resultado</span><p class="t-body">3 das 7 estampas descartadas antes da produção, evitando custo de piloto. 2 estampas tiveram colorway ajustado. Decisão tomada em reunião com material visual, sem protótipos físicos.</p></div>
+          <div class="card__block">
+            <span class="card__block-label">Contexto</span>
+            <p class="t-body">Equipe de produto precisava validar uma cartela de estampas inéditas com o time comercial antes de fechar a grade — sem nenhum piloto produzido.</p>
+          </div>
+          <div class="card__block">
+            <span class="card__block-label">Processo</span>
+            <p class="t-body">Aplicação digital das estampas em silhuetas de produto via IA. Geração de variações de colorway e aplicação em fotos de contexto de uso — praia, dia a dia, evento.</p>
+          </div>
+          <div class="card__block">
+            <span class="card__block-label">Resultado</span>
+            <p class="t-body">3 das 7 estampas descartadas antes da produção, evitando custo de piloto. 2 estampas tiveram colorway ajustado. Decisão tomada em reunião com material visual, sem protótipos físicos.</p>
+          </div>
         </article>
+
         <article class="card reveal reveal--d2">
           <p class="t-label card__label">Desenvolvimento Criativo<br>Estilista Independente, RJ</p>
           <h3 class="card__name">Construindo repertório para uma coleção conceitual</h3>
-          <div class="card__block"><span class="card__block-label">Contexto</span><p class="t-body">Primeira coleção de formatura com proposta conceitual forte — relação corpo–arquitetura — mas sem ferramentas para tornar o conceito visível além do texto.</p></div>
-          <div class="card__block"><span class="card__block-label">Processo</span><p class="t-body">Pesquisa expandida com IA sobre referências históricas e contemporâneas do diálogo moda–arquitetura. Geração de imagens exploratórias de volumes, estruturas e materiais.</p></div>
-          <div class="card__block"><span class="card__block-label">Resultado</span><p class="t-body">Banca elogiou a coerência entre conceito e visualização. A estilista entrou na construção dos looks com referência visual clara para modelagem, materiais e acabamentos.</p></div>
+          <div class="card__block">
+            <span class="card__block-label">Contexto</span>
+            <p class="t-body">Primeira coleção de formatura com proposta conceitual forte — relação corpo–arquitetura — mas sem ferramentas para tornar o conceito visível além do texto.</p>
+          </div>
+          <div class="card__block">
+            <span class="card__block-label">Processo</span>
+            <p class="t-body">Pesquisa expandida com IA sobre referências históricas e contemporâneas do diálogo moda–arquitetura. Geração de imagens exploratórias de volumes, estruturas e materiais.</p>
+          </div>
+          <div class="card__block">
+            <span class="card__block-label">Resultado</span>
+            <p class="t-body">Banca elogiou a coerência entre conceito e visualização. A estilista entrou na construção dos looks com referência visual clara para modelagem, materiais e acabamentos.</p>
+          </div>
         </article>
+
       </div>
     </div>
   </section>
 
+  <!-- ── Seção 4 — Contato ── -->
   <section id="contato" aria-label="Contato">
-    <div class="contato__grid">
-      <div class="contato__text">
-        <h2 class="contato__headline reveal">O que a sua próxima coleção ainda pode ser?</h2>
-        <p class="contato__sub reveal reveal--d1">Vamos explorar juntos.</p>
-        <a href="https://wa.me/5511999999999" class="btn btn--white reveal reveal--d2" target="_blank" rel="noopener noreferrer">Conversar no WhatsApp</a>
-      </div>
-      <div class="contato__photo-wrap reveal">
-        <img class="contato__photo" src="sobre.jpg" alt="MAVA Studio">
-      </div>
+    <div class="contato__inner">
+      <h2 class="contato__headline reveal">
+        O que a sua próxima coleção ainda pode ser?
+      </h2>
+      <p class="contato__sub reveal reveal--d1">Vamos explorar juntos.</p>
+      <a
+        href="https://wa.me/5511999999999"
+        class="btn btn--white reveal reveal--d2"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Conversar com a MAVA Studio no WhatsApp"
+      >
+        Conversar no WhatsApp
+      </a>
     </div>
+
     <footer class="footer" role="contentinfo">
       <div class="container footer__inner">
         <span class="footer__copy t-label">© 2026 MAVA Studio</span>
         <div class="footer__social">
-          <a href="https://instagram.com/mavastudio" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+          <a href="https://instagram.com/mavastudio" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="MAVA Studio no Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+            </svg>
           </a>
-          <a href="https://linkedin.com/company/mavastudio" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3" ry="3"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8.01" y2="8"/><path d="M12 16v-3a2 2 0 0 1 4 0v3"/><line x1="12" y1="11" x2="12" y2="16"/></svg>
+          <a href="https://linkedin.com/company/mavastudio" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="MAVA Studio no LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="3" ry="3"/>
+              <line x1="8" y1="11" x2="8" y2="16"/>
+              <line x1="8" y1="8" x2="8.01" y2="8"/>
+              <path d="M12 16v-3a2 2 0 0 1 4 0v3"/>
+              <line x1="12" y1="11" x2="12" y2="16"/>
+            </svg>
           </a>
         </div>
       </div>
@@ -243,6 +602,7 @@
   </section>
 
   <script>
+    // 1. Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));
@@ -250,24 +610,37 @@
       });
     });
 
+    // 2. Intersection Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+    // 3. Custom cursor
     if (window.matchMedia('(pointer: fine)').matches) {
       const cursor = document.getElementById('cursor');
       let cx = 0, cy = 0, tx = 0, ty = 0, started = false;
+
       document.addEventListener('mousemove', e => {
-        tx = e.clientX; ty = e.clientY;
-        if (!started) { cx = tx; cy = ty; cursor.classList.add('is-visible'); started = true; }
+        tx = e.clientX;
+        ty = e.clientY;
+        if (!started) {
+          cx = tx; cy = ty;
+          cursor.classList.add('is-visible');
+          started = true;
+        }
       });
+
       document.querySelectorAll('a, button, .btn').forEach(el => {
         el.addEventListener('mouseenter', () => cursor.classList.add('is-active'));
         el.addEventListener('mouseleave', () => cursor.classList.remove('is-active'));
       });
+
       (function loop() {
         cx += (tx - cx) * 0.14;
         cy += (ty - cy) * 0.14;
@@ -276,9 +649,11 @@
       })();
     }
 
+    // 4. Nav + hero parallax
     const nav = document.getElementById('nav');
     const heroPhoto = document.querySelector('.hero__photo');
     let ticking = false;
+
     window.addEventListener('scroll', () => {
       if (!ticking) {
         requestAnimationFrame(() => {
