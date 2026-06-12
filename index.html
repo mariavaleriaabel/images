@@ -240,7 +240,7 @@
     /* ─── Manifesto + Sobre ─── */
     #manifesto {
       background: var(--off-white);
-      padding: var(--sp-2xl) 0;
+      padding: var(--sp-2xl) 0 var(--sp-lg);
     }
     .grid-2 {
       display: grid;
@@ -260,16 +260,39 @@
       margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
     }
     .manifesto__line:last-of-type { margin-bottom: 0 }
+
+    /* manifesto image — right column */
+    .manifesto__img-wrap { align-self: start }
     .manifesto__img {
       width: 100%;
       aspect-ratio: 3 / 4;
       object-fit: cover;
       object-position: center top;
-      margin-top: var(--sp-lg);
       display: block;
     }
+
+    /* sobre section */
+    #sobre {
+      background: var(--off-white);
+      padding: var(--sp-2xl) 0;
+    }
+    .grid-2--reverse .sobre__img-wrap { order: -1 }
     @media (min-width: 768px) {
-      .manifesto__img { max-width: 80% }
+      .grid-2--reverse .sobre__img-wrap { order: 0 }
+    }
+    .sobre__img-wrap { align-self: stretch; min-height: 50vw }
+    @media (min-width: 768px) { .sobre__img-wrap { min-height: unset } }
+    .sobre__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .sobre__col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .sobre__label {
       display: block;
@@ -341,24 +364,20 @@
       background: var(--black);
       color: var(--white);
     }
-    .contato__grid {
-      display: grid;
-      grid-template-columns: 1fr;
+    .contato__inner {
       min-height: 100svh;
       min-height: 100vh;
-    }
-    @media (min-width: 768px) {
-      .contato__grid { grid-template-columns: 1fr 1fr }
-    }
-    .contato__text {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: var(--sp-2xl) var(--gutter);
+      max-width: var(--max-w);
+      margin: 0 auto;
     }
+
     .contato__headline {
       font-family: var(--serif);
-      font-size: clamp(2rem, 4.5vw, 4rem);
+      font-size: clamp(2rem, 5vw, 4.5rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.1;
@@ -371,24 +390,6 @@
       font-size: clamp(0.9rem, 1.1vw, 1rem);
       margin-bottom: var(--sp-lg);
     }
-    .contato__photo-wrap {
-      position: relative;
-      overflow: hidden;
-      min-height: 60vw;
-    }
-    @media (min-width: 768px) {
-      .contato__photo-wrap { min-height: unset }
-    }
-    .contato__photo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: brightness(0.75);
-    }
-
     /* ─── Footer ─── */
     .footer {
       background: var(--black);
@@ -452,27 +453,40 @@
     </div>
   </section>
 
-  <!-- ── Seção 2 — Manifesto + Sobre ── -->
-  <section id="manifesto" aria-label="Manifesto e sobre a MAVA Studio">
+  <!-- ── Seção 2a — Manifesto ── -->
+  <section id="manifesto" aria-label="Manifesto MAVA Studio">
     <div class="container">
       <div class="grid-2">
 
-        <!-- Manifesto -->
+        <!-- Texto -->
         <div class="manifesto__col">
           <p class="manifesto__line reveal">Boas coleções não começam no desenho.</p>
           <p class="manifesto__line reveal reveal--d1">Elas começam em perguntas.</p>
           <p class="manifesto__line reveal reveal--d2">Em referências.</p>
           <p class="manifesto__line reveal reveal--d3">Em possibilidades que ainda não existem.</p>
           <p class="manifesto__line reveal reveal--d4">E a sua coleção — por onde ela começa?</p>
-          <!-- Coloque manifesto.jpg em images/manifesto.jpg no repositório -->
-          <img
-            class="manifesto__img reveal reveal--d5"
-            src="manifesto.jpg"
-            alt="Referência visual de coleção"
-          >
         </div>
 
-        <!-- Sobre -->
+        <!-- Imagem -->
+        <div class="manifesto__img-wrap reveal reveal--d2">
+          <img class="manifesto__img" src="manifesto.jpg" alt="Referência visual de coleção">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Seção 2b — Sobre ── -->
+  <section id="sobre" aria-label="Sobre a MAVA Studio">
+    <div class="container">
+      <div class="grid-2 grid-2--reverse">
+
+        <!-- Imagem -->
+        <div class="sobre__img-wrap reveal">
+          <img class="sobre__img" src="sobre.jpg" alt="MAVA Studio">
+        </div>
+
+        <!-- Texto -->
         <div class="sobre__col">
           <span class="t-label sobre__label reveal">Sobre</span>
           <p class="t-body sobre__p reveal reveal--d1">
@@ -558,34 +572,20 @@
 
   <!-- ── Seção 4 — Contato ── -->
   <section id="contato" aria-label="Contato">
-    <div class="contato__grid">
-
-      <!-- Texto -->
-      <div class="contato__text">
-        <h2 class="contato__headline reveal">
-          O que a sua próxima coleção ainda pode ser?
-        </h2>
-        <p class="contato__sub reveal reveal--d1">Vamos explorar juntos.</p>
-        <a
-          href="https://wa.me/5511999999999"
-          class="btn btn--white reveal reveal--d2"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Conversar com a MAVA Studio no WhatsApp"
-        >
-          Conversar no WhatsApp
-        </a>
-      </div>
-
-      <!-- Foto — coloque sobre.jpg em images/sobre.jpg no repositório -->
-      <div class="contato__photo-wrap reveal">
-        <img
-          class="contato__photo"
-          src="sobre.jpg"
-          alt="MAVA Studio"
-        >
-      </div>
-
+    <div class="contato__inner">
+      <h2 class="contato__headline reveal">
+        O que a sua próxima coleção ainda pode ser?
+      </h2>
+      <p class="contato__sub reveal reveal--d1">Vamos explorar juntos.</p>
+      <a
+        href="https://wa.me/5511999999999"
+        class="btn btn--white reveal reveal--d2"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Conversar com a MAVA Studio no WhatsApp"
+      >
+        Conversar no WhatsApp
+      </a>
     </div>
 
     <footer class="footer" role="contentinfo">
