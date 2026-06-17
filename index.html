@@ -43,7 +43,6 @@
 
     @media (pointer: coarse) { body { cursor: auto } }
 
-    /* ─── Custom cursor (fixed) ─── */
     #cursor {
       width: 12px;
       height: 12px;
@@ -69,14 +68,12 @@
     }
     @media (pointer: coarse) { #cursor { display: none } }
 
-    /* ─── Container ─── */
     .container {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 0 var(--gutter);
     }
 
-    /* ─── Reveal ─── */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -89,7 +86,6 @@
     .reveal--d4 { transition-delay: 0.48s }
     .reveal--d5 { transition-delay: 0.60s }
 
-    /* ─── Typography ─── */
     .t-label {
       font-family: var(--sans);
       font-size: 0.68rem;
@@ -106,7 +102,6 @@
       color: var(--dark);
     }
 
-    /* ─── Button ─── */
     .btn {
       display: inline-block;
       padding: 1rem 2.5rem;
@@ -130,7 +125,6 @@
     }
     .btn--outline:hover { border-color: var(--white); opacity: 1 }
 
-    /* ─── Nav ─── */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -168,7 +162,6 @@
     }
     .nav__link:hover { color: var(--white) }
 
-    /* ─── Hero ─── */
     #hero {
       position: relative;
       min-height: 100svh;
@@ -237,7 +230,6 @@
       to   { opacity: 1 }
     }
 
-    /* ─── Manifesto ─── */
     #manifesto {
       background: var(--off-white);
       padding: var(--sp-2xl) 0 var(--sp-lg);
@@ -270,7 +262,6 @@
       display: block;
     }
 
-    /* ─── Sobre ─── */
     #sobre {
       background: var(--off-white);
       padding: var(--sp-2xl) 0;
@@ -301,7 +292,6 @@
     .sobre__p { margin-bottom: var(--sp-md) }
     .sobre__p:last-child { margin-bottom: 0 }
 
-    /* ─── Cases ─── */
     #cases { padding: var(--sp-2xl) 0; background: var(--white) }
     .cases__header {
       display: flex;
@@ -343,22 +333,17 @@
       font-weight: 400;
       line-height: 1.3;
       color: var(--black);
-      margin-bottom: var(--sp-lg);
+      margin-bottom: var(--sp-md);
     }
-    .card__block { margin-bottom: var(--sp-md) }
-    .card__block:last-child { margin-bottom: 0 }
-    .card__block-label {
-      font-family: var(--sans);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 0.5rem;
+    .card__img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
       display: block;
+      margin-bottom: var(--sp-md);
     }
 
-    /* ─── Contato ─── */
     #contato {
       background: var(--black);
       color: var(--white);
@@ -389,7 +374,6 @@
       margin-bottom: var(--sp-lg);
     }
 
-    /* ─── Footer ─── */
     .footer {
       background: var(--black);
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -425,10 +409,8 @@
 </head>
 <body>
 
-  <!-- Cursor -->
   <div id="cursor" aria-hidden="true"></div>
 
-  <!-- Nav -->
   <nav class="nav" id="nav" role="navigation" aria-label="Principal">
     <div class="container nav__inner">
       <a href="#" class="nav__logo t-label">MAVA Studio</a>
@@ -436,7 +418,6 @@
     </div>
   </nav>
 
-  <!-- ── Seção 1 — Hero ── -->
   <section id="hero" aria-labelledby="hero-headline">
     <img class="hero__photo" src="hero.jpg" alt="" aria-hidden="true">
     <div class="hero__overlay" aria-hidden="true"></div>
@@ -451,7 +432,6 @@
     </div>
   </section>
 
-  <!-- ── Seção 2a — Manifesto ── -->
   <section id="manifesto" aria-label="Manifesto MAVA Studio">
     <div class="container">
       <div class="grid-2">
@@ -469,7 +449,6 @@
     </div>
   </section>
 
-  <!-- ── Seção 2b — Sobre ── -->
   <section id="sobre" aria-label="Sobre a MAVA Studio">
     <div class="container">
       <div class="grid-2 grid-2--reverse">
@@ -495,7 +474,6 @@
     </div>
   </section>
 
-  <!-- ── Seção 3 — Cases ── -->
   <section id="cases" aria-label="Projetos">
     <div class="container">
       <div class="cases__header">
@@ -504,61 +482,30 @@
       <div class="grid-3">
 
         <article class="card reveal">
-          <p class="t-label card__label">Pesquisa de Coleção<br>Marca de Moda Autoral, SP</p>
+          <img class="card__img" src="pesquisa.jpg" alt="Pesquisa de coleção">
+          <p class="t-label card__label">Pesquisa de coleção</p>
           <h3 class="card__name">De referência dispersa a direção visual coerente</h3>
-          <div class="card__block">
-            <span class="card__block-label">Contexto</span>
-            <p class="t-body">Designer com três anos de marca própria chegou com moodboards contraditórios para a coleção de verão. Sem tema central definido, prazo de desenvolvimento pressionando.</p>
-          </div>
-          <div class="card__block">
-            <span class="card__block-label">Processo</span>
-            <p class="t-body">Sessão de curadoria com IA para identificar tensões e convergências entre referências. Geração de 40+ imagens conceituais testando paletas, silhuetas e texturas. Mapeamento das escolhas em matriz visual.</p>
-          </div>
-          <div class="card__block">
-            <span class="card__block-label">Resultado</span>
-            <p class="t-body">Direção de coleção consolidada em 2 dias. A designer entrou no desenvolvimento com clareza de paleta, três arquétipos de silhueta e um nome de coleção que emergiu do processo.</p>
-          </div>
+          <p class="t-body">A pesquisa de referências foi transformada em desenhos técnicos e simulações de tecidos nas principais bases da coleção, facilitando a visualização das ideias e tornando as decisões mais assertivas, sempre alinhadas ao conceito da coleção.</p>
         </article>
 
         <article class="card reveal reveal--d1">
-          <p class="t-label card__label">Visualização de Produto<br>Marca de Vestuário Feminino, MG</p>
+          <img class="card__img" src="visualizacao.jpg" alt="Visualização de produto">
+          <p class="t-label card__label">Visualização de produto</p>
           <h3 class="card__name">Ver a peça antes de ela existir</h3>
-          <div class="card__block">
-            <span class="card__block-label">Contexto</span>
-            <p class="t-body">Equipe de produto precisava validar uma cartela de estampas inéditas com o time comercial antes de fechar a grade — sem nenhum piloto produzido.</p>
-          </div>
-          <div class="card__block">
-            <span class="card__block-label">Processo</span>
-            <p class="t-body">Aplicação digital das estampas em silhuetas de produto via IA. Geração de variações de colorway e aplicação em fotos de contexto de uso — praia, dia a dia, evento.</p>
-          </div>
-          <div class="card__block">
-            <span class="card__block-label">Resultado</span>
-            <p class="t-body">3 das 7 estampas descartadas antes da produção, evitando custo de piloto. 2 estampas tiveram colorway ajustado. Decisão tomada em reunião com material visual, sem protótipos físicos.</p>
-          </div>
+          <p class="t-body">Estampas, cores e variações foram aplicadas digitalmente em silhuetas e imagens de contexto, permitindo a validação pelo time comercial antes da produção e reduzindo a necessidade de protótipos físicos.</p>
         </article>
 
         <article class="card reveal reveal--d2">
-          <p class="t-label card__label">Desenvolvimento Criativo<br>Estilista Independente, RJ</p>
+          <img class="card__img" src="desenvolvimento.jpg" alt="Desenvolvimento criativo">
+          <p class="t-label card__label">Desenvolvimento criativo</p>
           <h3 class="card__name">Construindo repertório para uma coleção conceitual</h3>
-          <div class="card__block">
-            <span class="card__block-label">Contexto</span>
-            <p class="t-body">Primeira coleção de formatura com proposta conceitual forte — relação corpo–arquitetura — mas sem ferramentas para tornar o conceito visível além do texto.</p>
-          </div>
-          <div class="card__block">
-            <span class="card__block-label">Processo</span>
-            <p class="t-body">Pesquisa expandida com IA sobre referências históricas e contemporâneas do diálogo moda–arquitetura. Geração de imagens exploratórias de volumes, estruturas e materiais.</p>
-          </div>
-          <div class="card__block">
-            <span class="card__block-label">Resultado</span>
-            <p class="t-body">Banca elogiou a coerência entre conceito e visualização. A estilista entrou na construção dos looks com referência visual clara para modelagem, materiais e acabamentos.</p>
-          </div>
+          <p class="t-body">A pesquisa foi ampliada com o apoio de IA para explorar referências vintage, formas, volumes, materiais e acabamentos, fortalecendo o repertório criativo e apoiando o desenvolvimento de produtos com maior potencial de newness.</p>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- ── Seção 4 — Contato ── -->
   <section id="contato" aria-label="Contato">
     <div class="contato__inner">
       <h2 class="contato__headline reveal">
@@ -602,7 +549,6 @@
   </section>
 
   <script>
-    // 1. Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));
@@ -610,7 +556,6 @@
       });
     });
 
-    // 2. Intersection Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -621,7 +566,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // 3. Custom cursor
     if (window.matchMedia('(pointer: fine)').matches) {
       const cursor = document.getElementById('cursor');
       let cx = 0, cy = 0, tx = 0, ty = 0, started = false;
@@ -649,7 +593,6 @@
       })();
     }
 
-    // 4. Nav + hero parallax
     const nav = document.getElementById('nav');
     const heroPhoto = document.querySelector('.hero__photo');
     let ticking = false;

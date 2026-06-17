@@ -4,6 +4,9 @@
     { "src": "/hero.jpg", "dest": "/hero.jpg" },
     { "src": "/manifesto.jpg", "dest": "/manifesto.jpg" },
     { "src": "/sobre.jpg", "dest": "/sobre.jpg" },
+    { "src": "/pesquisa.jpg", "dest": "/pesquisa.jpg" },
+    { "src": "/visualizacao.jpg", "dest": "/visualizacao.jpg" },
+    { "src": "/desenvolvimento.jpg", "dest": "/desenvolvimento.jpg" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
