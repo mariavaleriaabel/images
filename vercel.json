@@ -4,9 +4,9 @@
     { "src": "/hero.jpg", "dest": "/hero.jpg" },
     { "src": "/manifesto.jpg", "dest": "/manifesto.jpg" },
     { "src": "/sobre.jpg", "dest": "/sobre.jpg" },
-    { "src": "/pesquisa.jpg", "dest": "/pesquisa.jpg" },
-    { "src": "/visualizacao.jpg", "dest": "/visualizacao.jpg" },
-    { "src": "/desenvolvimento.jpg", "dest": "/desenvolvimento.jpg" },
+    { "src": "/Pesquisa.png", "dest": "/Pesquisa.png" },
+    { "src": "/visualiza%C3%A7%C3%A3o.png", "dest": "/visualiza%C3%A7%C3%A3o.png" },
+    { "src": "/desenvolvimento.png", "dest": "/desenvolvimento.png" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
