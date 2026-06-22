@@ -85,6 +85,8 @@
     .reveal--d3 { transition-delay: 0.36s }
     .reveal--d4 { transition-delay: 0.48s }
     .reveal--d5 { transition-delay: 0.60s }
+    .reveal--d6 { transition-delay: 0.72s }
+    .reveal--d7 { transition-delay: 0.84s }
 
     .t-label {
       font-family: var(--sans);
@@ -198,27 +200,18 @@
       position: relative;
       z-index: 2;
     }
-    .hero__headline {
-      font-family: var(--serif);
-      font-size: clamp(3rem, 7.5vw, 7.5rem);
-      font-weight: 700;
-      line-height: 1.0;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      max-width: 14ch;
-      animation: slideUp 1s var(--ease-expo) 0.2s both;
-    }
     .hero__sub {
-      margin-top: var(--sp-md);
-      font-size: clamp(0.95rem, 1.3vw, 1.1rem);
-      color: rgba(255,255,255,0.65);
+      margin-top: 0;
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      color: rgba(255,255,255,0.9);
+      max-width: 28ch;
       font-family: var(--sans);
       font-weight: 300;
-      animation: slideUp 1s var(--ease-expo) 0.5s both;
+      animation: slideUp 1s var(--ease-expo) 0.3s both;
     }
     .hero__cta {
       margin-top: var(--sp-lg);
-      animation: fadeIn 0.8s ease 0.9s both;
+      animation: fadeIn 0.8s ease 0.7s both;
     }
 
     @keyframes slideUp {
@@ -291,6 +284,16 @@
     }
     .sobre__p { margin-bottom: var(--sp-md) }
     .sobre__p:last-child { margin-bottom: 0 }
+
+    /* ─── Como eu ajudo ─── */
+    #como-ajudo { background: var(--off-white); padding: var(--sp-2xl) 0; }
+    .como__header { border-top: 1px solid var(--border); padding-top: var(--sp-md); margin-bottom: var(--sp-xl); }
+    .como__title { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--black); }
+    .grid-2-2 { display: grid; grid-template-columns: 1fr; gap: var(--sp-lg); }
+    @media (min-width: 768px) { .grid-2-2 { grid-template-columns: 1fr 1fr; } }
+    .como__card { border-top: 1px solid var(--border); padding-top: var(--sp-md); }
+    .como__card .t-label { display: block; margin-bottom: var(--sp-sm); }
+    .como__card .t-body { margin-top: 0; }
 
     #cases { padding: var(--sp-2xl) 0; background: var(--white) }
     .cases__header {
@@ -371,6 +374,7 @@
     .contato__sub {
       color: rgba(255,255,255,0.5);
       font-size: clamp(0.9rem, 1.1vw, 1rem);
+      max-width: 48ch;
       margin-bottom: var(--sp-lg);
     }
 
@@ -418,17 +422,14 @@
     </div>
   </nav>
 
-  <section id="hero" aria-labelledby="hero-headline">
+  <section id="hero" aria-label="Hero MAVA Studio">
     <img class="hero__photo" src="hero.jpg" alt="" aria-hidden="true">
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="container hero__content">
-      <h1 class="hero__headline" id="hero-headline">
-        Explore o que sua coleção ainda pode ser.
-      </h1>
       <p class="hero__sub">
-        Antecipe direções visuais da sua coleção com IA.
+        Use AI para expandir o processo criativo, revelando possibilidades, direções visuais e hipóteses que normalmente permanecem invisíveis.
       </p>
-      <a href="#cases" class="btn btn--outline hero__cta">Ver os projetos</a>
+      <a href="#cases" class="btn btn--outline hero__cta">Explorar possibilidades</a>
     </div>
   </section>
 
@@ -436,11 +437,14 @@
     <div class="container">
       <div class="grid-2">
         <div class="manifesto__col">
-          <p class="manifesto__line reveal">Boas coleções não começam no desenho.</p>
-          <p class="manifesto__line reveal reveal--d1">Elas começam em perguntas.</p>
-          <p class="manifesto__line reveal reveal--d2">Em referências.</p>
-          <p class="manifesto__line reveal reveal--d3">Em possibilidades que ainda não existem.</p>
-          <p class="manifesto__line reveal reveal--d4">E a sua coleção — por onde ela começa?</p>
+          <p class="manifesto__line reveal">E se a melhor ideia da sua coleção permanecesse invisível?</p>
+          <p class="manifesto__line reveal reveal--d1">Não porque ela não existia.</p>
+          <p class="manifesto__line reveal reveal--d2">Mas porque nunca chegou a ser explorada.</p>
+          <p class="manifesto__line reveal reveal--d3">O processo criativo é feito de escolhas.</p>
+          <p class="manifesto__line reveal reveal--d4">Mas nem todas as possibilidades se tornam visíveis durante o processo.</p>
+          <p class="manifesto__line reveal reveal--d5">Algumas ideias ganham forma. Outras permanecem apenas como intuição.</p>
+          <p class="manifesto__line reveal reveal--d6">A questão não é apenas criar.</p>
+          <p class="manifesto__line reveal reveal--d7">É conseguir explorar aquilo que ainda não pode ser visto.</p>
         </div>
         <div class="manifesto__img-wrap reveal reveal--d2">
           <img class="manifesto__img" src="manifesto.jpg" alt="Referência visual de coleção">
@@ -456,20 +460,54 @@
           <img class="sobre__img" src="sobre.jpg" alt="MAVA Studio">
         </div>
         <div class="sobre__col">
-          <span class="t-label sobre__label reveal">Sobre</span>
+          <span class="t-label sobre__label reveal">Por que conversar comigo?</span>
           <p class="t-body sobre__p reveal reveal--d1">
-            Acredito que a IA pode fortalecer o processo criativo, não substituí-lo.
+            Depois de anos atuando entre desenvolvimento de produto e equipes criativas, percebi que os maiores desafios da moda raramente são apenas operacionais.
           </p>
           <p class="t-body sobre__p reveal reveal--d2">
-            Depois de anos entre desenvolvimento de produto e equipes criativas, percebi que os maiores desafios da moda raramente são apenas operacionais.
+            Criar uma coleção exige repertório, contexto, sensibilidade e tomada de decisão.
           </p>
           <p class="t-body sobre__p reveal reveal--d3">
-            Criar uma coleção exige repertório, contexto, sensibilidade e tomada de decisão. A IA pode acelerar etapas, ampliar possibilidades e tornar ideias visíveis mais cedo. Mas seu maior potencial não está na automação — está na capacidade de apoiar o amadurecimento criativo.
+            Ao longo desse processo, muitas possibilidades permanecem invisíveis, não por falta de criatividade, mas porque nem sempre conseguimos explorar tudo o que uma ideia pode se tornar.
           </p>
           <p class="t-body sobre__p reveal reveal--d4">
-            A MAVA Studio nasce desse encontro. Eu ajudo estilistas, designers e marcas a criar, pesquisar e visualizar com mais clareza e intenção.
+            Foi a partir dessa observação que passei a incorporar a AI como parte do meu trabalho. Não como substituição do processo criativo. Mas como uma ferramenta para ampliar investigação, visualizar caminhos e aprofundar conceitos antes que eles se tornem decisões.
+          </p>
+          <p class="t-body sobre__p reveal reveal--d5">
+            Meu papel é ajudar pessoas criativas a explorar novas possibilidades para suas coleções, transformando ideias abstratas em direções visuais que podem ser analisadas, discutidas e desenvolvidas.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-ajudo" aria-label="Como eu ajudo">
+    <div class="container">
+      <div class="como__header">
+        <h2 class="como__title reveal">Como eu ajudo</h2>
+      </div>
+      <div class="grid-2-2">
+
+        <div class="como__card reveal">
+          <span class="t-label">Exploração Criativa</span>
+          <p class="t-body">A partir de uma ideia, tema ou direção inicial, investigo possibilidades visuais que ajudam a expandir o potencial criativo da coleção.</p>
+        </div>
+
+        <div class="como__card reveal reveal--d1">
+          <span class="t-label">Pesquisa e Construção de Repertório</span>
+          <p class="t-body">Transformo referências dispersas em narrativas visuais mais estruturadas, conectando conceitos, materiais, atmosferas e direções criativas.</p>
+        </div>
+
+        <div class="como__card reveal reveal--d2">
+          <span class="t-label">Visualização Antecipada</span>
+          <p class="t-body">Ajudo estilistas e marcas a visualizar produtos, famílias, conceitos e cenários antes das etapas de desenvolvimento.</p>
+        </div>
+
+        <div class="como__card reveal reveal--d3">
+          <span class="t-label">Consultoria para Coleções e Equipes Criativas</span>
+          <p class="t-body">Apoio marcas e estilistas na incorporação da inteligência artificial como ferramenta de pesquisa, exploração e desenvolvimento criativo.</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -511,15 +549,15 @@
       <h2 class="contato__headline reveal">
         O que a sua próxima coleção ainda pode ser?
       </h2>
-      <p class="contato__sub reveal reveal--d1">Vamos explorar juntos.</p>
+      <p class="contato__sub reveal reveal--d1">Se você deseja explorar possibilidades, aprofundar conceitos e visualizar caminhos criativos antes que eles se tornem decisões, vamos conversar.</p>
       <a
         href="https://wa.me/5511999999999"
         class="btn btn--white reveal reveal--d2"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Conversar com a MAVA Studio no WhatsApp"
+        aria-label="Agendar uma conversa com a MAVA Studio"
       >
-        Conversar no WhatsApp
+        Agendar uma conversa
       </a>
     </div>
 
