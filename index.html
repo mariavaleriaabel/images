@@ -218,7 +218,7 @@
       animation: slideUp 1s var(--ease-expo) 0.2s both;
     }
     .hero__sub {
-      margin-top: 0;
+      margin-top: var(--sp-md);
       font-size: clamp(1.1rem, 2vw, 1.6rem);
       color: rgba(255,255,255,0.9);
       max-width: 28ch;
@@ -256,7 +256,7 @@
     .manifesto__line {
       font-family: var(--serif);
       font-style: italic;
-      font-size: clamp(1.6rem, 3.2vw, 2.8rem);
+      font-size: clamp(1.12rem, 2.24vw, 1.96rem);
       font-weight: 400;
       line-height: 1.25;
       color: var(--black);
@@ -464,7 +464,8 @@
     <img class="hero__photo" src="hero.jpg" alt="" aria-hidden="true">
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="container hero__content">
-      <p class="hero__sub" id="hero-headline">
+      <h1 class="hero__headline">Explore o que sua coleção ainda pode ser.</h1>
+      <p class="hero__sub">
         Use AI para expandir o processo criativo, revelando possibilidades, direções visuais e hipóteses que normalmente permanecem invisíveis.
       </p>
       <a href="#cases" class="btn btn--outline hero__cta">Explorar possibilidades</a>
