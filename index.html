@@ -43,7 +43,6 @@
 
     @media (pointer: coarse) { body { cursor: auto } }
 
-    /* ─── Custom cursor (fixed) ─── */
     #cursor {
       width: 12px;
       height: 12px;
@@ -69,14 +68,12 @@
     }
     @media (pointer: coarse) { #cursor { display: none } }
 
-    /* ─── Container ─── */
     .container {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 0 var(--gutter);
     }
 
-    /* ─── Reveal ─── */
     .reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -91,7 +88,6 @@
     .reveal--d6 { transition-delay: 0.72s }
     .reveal--d7 { transition-delay: 0.84s }
 
-    /* ─── Typography ─── */
     .t-label {
       font-family: var(--sans);
       font-size: 0.68rem;
@@ -108,7 +104,6 @@
       color: var(--dark);
     }
 
-    /* ─── Button ─── */
     .btn {
       display: inline-block;
       padding: 1rem 2.5rem;
@@ -132,7 +127,6 @@
     }
     .btn--outline:hover { border-color: var(--white); opacity: 1 }
 
-    /* ─── Nav ─── */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -170,7 +164,6 @@
     }
     .nav__link:hover { color: var(--white) }
 
-    /* ─── Hero ─── */
     #hero {
       position: relative;
       min-height: 100svh;
@@ -240,7 +233,6 @@
       to   { opacity: 1 }
     }
 
-    /* ─── Manifesto + Sobre ─── */
     #manifesto {
       background: var(--off-white);
       padding: var(--sp-2xl) 0 var(--sp-lg);
@@ -264,7 +256,6 @@
     }
     .manifesto__line:last-of-type { margin-bottom: 0 }
 
-    /* manifesto image — right column */
     .manifesto__img-wrap { align-self: start }
     .manifesto__img {
       width: 100%;
@@ -274,7 +265,6 @@
       display: block;
     }
 
-    /* sobre section */
     #sobre {
       background: var(--off-white);
       padding: var(--sp-2xl) 0;
@@ -305,10 +295,8 @@
     .sobre__p { margin-bottom: var(--sp-md) }
     .sobre__p:last-child { margin-bottom: 0 }
 
-    /* ─── Cases ─── */
-    /* ─── Como eu ajudo ─── */
     #como-ajudo { background: var(--off-white); padding: var(--sp-2xl) 0; }
-    .como__header { border-top: 1px solid var(--border); padding-top: var(--sp-md); margin-bottom: var(--sp-xl); }
+    .como__header { padding-top: var(--sp-md); margin-bottom: var(--sp-xl); }
     .como__title { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--black); }
     .grid-2-2 { display: grid; grid-template-columns: 1fr; gap: var(--sp-lg); }
     @media (min-width: 768px) { .grid-2-2 { grid-template-columns: 1fr 1fr; } }
@@ -321,7 +309,6 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      border-top: 1px solid var(--border);
       padding-top: var(--sp-md);
       margin-bottom: var(--sp-xl);
     }
@@ -380,7 +367,6 @@
       margin-bottom: var(--sp-md);
     }
 
-    /* ─── Contato ─── */
     #contato {
       background: var(--black);
       color: var(--white);
@@ -395,7 +381,6 @@
       max-width: var(--max-w);
       margin: 0 auto;
     }
-
     .contato__headline {
       font-family: var(--serif);
       font-size: clamp(2rem, 5vw, 4.5rem);
@@ -411,7 +396,6 @@
       font-size: clamp(0.9rem, 1.1vw, 1rem);
       margin-bottom: var(--sp-lg);
     }
-    /* ─── Footer ─── */
     .footer {
       background: var(--black);
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -447,10 +431,8 @@
 </head>
 <body>
 
-  <!-- Cursor -->
   <div id="cursor" aria-hidden="true"></div>
 
-  <!-- Nav -->
   <nav class="nav" id="nav" role="navigation" aria-label="Principal">
     <div class="container nav__inner">
       <a href="#" class="nav__logo t-label">MAVA Studio</a>
@@ -458,7 +440,6 @@
     </div>
   </nav>
 
-  <!-- ── Seção 1 — Hero ── -->
   <section id="hero" aria-label="Hero MAVA Studio">
     <img class="hero__photo" src="hero.jpg" alt="" aria-hidden="true">
     <div class="hero__overlay" aria-hidden="true"></div>
@@ -467,16 +448,13 @@
       <p class="hero__sub">
         Use AI para expandir o processo criativo, revelando possibilidades, direções visuais e hipóteses que normalmente permanecem invisíveis.
       </p>
-      <a href="#cases" class="btn btn--outline hero__cta">Explorar possibilidades</a>
+      <a href="#como-ajudo" class="btn btn--outline hero__cta">Explorar possibilidades</a>
     </div>
   </section>
 
-  <!-- ── Seção 2a — Manifesto ── -->
   <section id="manifesto" aria-label="Manifesto MAVA Studio">
     <div class="container">
       <div class="grid-2">
-
-        <!-- Texto -->
         <div class="manifesto__col">
           <p class="manifesto__line reveal">E se a melhor ideia da sua coleção permanecesse invisível?</p>
           <p class="manifesto__line reveal reveal--d1">Não porque ela não existia.</p>
@@ -487,133 +465,91 @@
           <p class="manifesto__line reveal reveal--d6">A questão não é apenas criar.</p>
           <p class="manifesto__line reveal reveal--d7">É conseguir explorar aquilo que ainda não pode ser visto.</p>
         </div>
-
-        <!-- Imagem -->
         <div class="manifesto__img-wrap reveal reveal--d2">
           <img class="manifesto__img" src="manifesto.jpg" alt="Referência visual de coleção">
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ── Seção 2b — Sobre ── -->
   <section id="sobre" aria-label="Sobre a MAVA Studio">
     <div class="container">
       <div class="grid-2 grid-2--reverse">
-
-        <!-- Imagem -->
         <div class="sobre__img-wrap reveal">
           <img class="sobre__img" src="sobre.jpg" alt="MAVA Studio">
         </div>
-
-        <!-- Texto -->
         <div class="sobre__col">
           <span class="t-label sobre__label reveal">Por que conversar comigo?</span>
-          <p class="t-body sobre__p reveal reveal--d1">
-            Depois de anos atuando entre desenvolvimento de produto e equipes criativas, percebi que os maiores desafios da moda raramente são apenas operacionais.
-          </p>
-          <p class="t-body sobre__p reveal reveal--d2">
-            Criar uma coleção exige repertório, contexto, sensibilidade e tomada de decisão.
-          </p>
-          <p class="t-body sobre__p reveal reveal--d3">
-            Ao longo desse processo, muitas possibilidades permanecem invisíveis, não por falta de criatividade, mas porque nem sempre conseguimos explorar tudo o que uma ideia pode se tornar.
-          </p>
-          <p class="t-body sobre__p reveal reveal--d4">
-            Foi a partir dessa observação que passei a incorporar a AI como parte do meu trabalho. Não como substituição do processo criativo. Mas como uma ferramenta para ampliar investigação, visualizar caminhos e aprofundar conceitos antes que eles se tornem decisões.
-          </p>
-          <p class="t-body sobre__p reveal reveal--d5">
-            Meu papel é ajudar pessoas criativas a explorar novas possibilidades para suas coleções, transformando ideias abstratas em direções visuais que podem ser analisadas, discutidas e desenvolvidas.
-          </p>
+          <p class="t-body sobre__p reveal reveal--d1">Depois de anos atuando entre desenvolvimento de produto e equipes criativas, percebi que os maiores desafios da moda raramente são apenas operacionais.</p>
+          <p class="t-body sobre__p reveal reveal--d2">Criar uma coleção exige repertório, contexto, sensibilidade e tomada de decisão.</p>
+          <p class="t-body sobre__p reveal reveal--d3">Ao longo desse processo, muitas possibilidades permanecem invisíveis, não por falta de criatividade, mas porque nem sempre conseguimos explorar tudo o que uma ideia pode se tornar.</p>
+          <p class="t-body sobre__p reveal reveal--d4">Foi a partir dessa observação que passei a incorporar a AI como parte do meu trabalho. Não como substituição do processo criativo. Mas como uma ferramenta para ampliar investigação, visualizar caminhos e aprofundar conceitos antes que eles se tornem decisões.</p>
+          <p class="t-body sobre__p reveal reveal--d5">Meu papel é ajudar pessoas criativas a explorar novas possibilidades para suas coleções, transformando ideias abstratas em direções visuais que podem ser analisadas, discutidas e desenvolvidas.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ── Seção 3 — Como eu ajudo ── -->
   <section id="como-ajudo" aria-label="Como eu ajudo">
     <div class="container">
       <div class="como__header">
         <h2 class="como__title reveal">Como eu ajudo</h2>
       </div>
       <div class="grid-2-2">
-
         <div class="como__card reveal">
           <span class="t-label">Exploração Criativa</span>
           <p class="t-body">A partir de uma ideia, tema ou direção inicial, investigo possibilidades visuais que ajudam a expandir o potencial criativo da coleção.</p>
         </div>
-
         <div class="como__card reveal reveal--d1">
           <span class="t-label">Pesquisa e Construção de Repertório</span>
           <p class="t-body">Transformo referências dispersas em narrativas visuais mais estruturadas, conectando conceitos, materiais, atmosferas e direções criativas.</p>
         </div>
-
         <div class="como__card reveal reveal--d2">
           <span class="t-label">Visualização Antecipada</span>
           <p class="t-body">Ajudo estilistas e marcas a visualizar produtos, famílias, conceitos e cenários antes das etapas de desenvolvimento.</p>
         </div>
-
         <div class="como__card reveal reveal--d3">
           <span class="t-label">Consultoria para Coleções e Equipes Criativas</span>
           <p class="t-body">Apoio marcas e estilistas na incorporação da inteligência artificial como ferramenta de pesquisa, exploração e desenvolvimento criativo.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ── Seção 4 — Cases ── -->
   <section id="cases" aria-label="Projetos">
     <div class="container">
       <div class="cases__header">
         <h2 class="cases__title reveal">Projetos</h2>
       </div>
       <div class="grid-3">
-
         <article class="card reveal">
           <img class="card__img" src="Pesquisa.png" alt="Pesquisa de coleção">
           <p class="t-label card__label">Pesquisa de coleção</p>
           <h3 class="card__name">De referência dispersa a direção visual coerente</h3>
           <p class="t-body">A pesquisa de referências foi transformada em desenhos técnicos e simulações de tecidos nas principais bases da coleção, facilitando a visualização das ideias e tornando as decisões mais assertivas, sempre alinhadas ao conceito da coleção.</p>
         </article>
-
         <article class="card reveal reveal--d1">
           <img class="card__img" src="visualização.png" alt="Visualização de produto">
           <p class="t-label card__label">Visualização de produto</p>
           <h3 class="card__name">Ver a peça antes de ela existir</h3>
           <p class="t-body">Estampas, cores e variações foram aplicadas digitalmente em silhuetas e imagens de contexto, permitindo a validação pelo time comercial antes da produção e reduzindo a necessidade de protótipos físicos.</p>
         </article>
-
         <article class="card reveal reveal--d2">
           <img class="card__img" src="desenvolvimento.png" alt="Desenvolvimento criativo">
           <p class="t-label card__label">Desenvolvimento criativo</p>
           <h3 class="card__name">Construindo repertório para uma coleção conceitual</h3>
           <p class="t-body">A pesquisa foi ampliada com o apoio de IA para explorar referências vintage, formas, volumes, materiais e acabamentos, fortalecendo o repertório criativo e apoiando o desenvolvimento de produtos com maior potencial de newness.</p>
         </article>
-
       </div>
     </div>
   </section>
 
-  <!-- ── Seção 4 — Contato ── -->
   <section id="contato" aria-label="Contato">
     <div class="contato__inner">
-      <h2 class="contato__headline reveal">
-        O que a sua próxima coleção ainda pode ser?
-      </h2>
+      <h2 class="contato__headline reveal">O que a sua próxima coleção ainda pode ser?</h2>
       <p class="contato__sub reveal reveal--d1">Se você deseja explorar possibilidades, aprofundar conceitos e visualizar caminhos criativos antes que eles se tornem decisões, vamos conversar.</p>
-      <a
-        href="https://wa.me/5511999999999"
-        class="btn btn--white reveal reveal--d2"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Agendar uma conversa com a MAVA Studio"
-      >
-        Agendar uma conversa
-      </a>
+      <a href="https://wa.me/5511999999999" class="btn btn--white reveal reveal--d2" target="_blank" rel="noopener noreferrer" aria-label="Agendar uma conversa com a MAVA Studio">Agendar uma conversa</a>
     </div>
-
     <footer class="footer" role="contentinfo">
       <div class="container footer__inner">
         <span class="footer__copy t-label">© 2026 MAVA Studio</span>
@@ -640,7 +576,6 @@
   </section>
 
   <script>
-    // 1. Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));
@@ -648,7 +583,6 @@
       });
     });
 
-    // 2. Intersection Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -659,7 +593,6 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // 3. Custom cursor — fixed implementation
     if (window.matchMedia('(pointer: fine)').matches) {
       const cursor = document.getElementById('cursor');
       let cx = 0, cy = 0, tx = 0, ty = 0, started = false;
@@ -687,7 +620,6 @@
       })();
     }
 
-    // 4. Nav + hero parallax
     const nav = document.getElementById('nav');
     const heroPhoto = document.querySelector('.hero__photo');
     let ticking = false;
