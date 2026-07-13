@@ -428,141 +428,162 @@
     }
     .social-link:hover { color: var(--white) }
     .social-link svg { display: block }
+
+    .lang-toggle {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      cursor: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    @media (pointer: coarse) { .lang-toggle { cursor: pointer } }
+    .lang-toggle span { transition: color 0.2s, opacity 0.2s }
+    .lang-toggle .is-off { color: rgba(255,255,255,0.4); opacity: 0.7 }
+    .lang-toggle .is-on { color: var(--white); opacity: 1 }
+    .lang-toggle:hover { border-color: rgba(255,255,255,0.6) }
   </style>
 </head>
 <body>
 
   <div id="cursor" aria-hidden="true"></div>
 
-  <nav class="nav" id="nav" role="navigation" aria-label="Principal">
+  <nav class="nav" id="nav" role="navigation" aria-label="Principal" data-i18n-aria="nav">
     <div class="container nav__inner">
       <a href="#" class="nav__logo t-label">MAVA Studio</a>
-      <a href="#cases" class="nav__link">Projetos</a>
+      <div style="display:flex; align-items:center; gap:1.5rem;">
+        <a href="#cases" class="nav__link" data-i18n="nav-projetos">Projetos</a>
+        <button type="button" id="langToggle" class="nav__link lang-toggle" aria-label="Switch language / Mudar idioma">
+          <span class="is-on" data-lang-label="pt-BR">PT</span>/<span class="is-off" data-lang-label="en">EN</span>
+        </button>
+      </div>
     </div>
   </nav>
 
-  <section id="hero" aria-label="Hero MAVA Studio">
+  <section id="hero" aria-label="Hero MAVA Studio" data-i18n-aria="hero">
     <img class="hero__photo" src="hero.jpg" alt="" aria-hidden="true">
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="container hero__content">
-      <h1 class="hero__headline">Explore o que sua coleção ainda pode ser.</h1>
-      <p class="hero__sub">
+      <h1 class="hero__headline" data-i18n="hero-headline">Explore o que sua coleção ainda pode ser.</h1>
+      <p class="hero__sub" data-i18n="hero-sub">
         Use AI para expandir o processo criativo, revelando possibilidades, direções visuais e hipóteses que normalmente permanecem invisíveis.
       </p>
-      <a href="#como-ajudo" class="btn btn--outline hero__cta">Explorar possibilidades</a>
+      <a href="#como-ajudo" class="btn btn--outline hero__cta" data-i18n="hero-cta">Explorar possibilidades</a>
     </div>
   </section>
 
-  <section id="manifesto" aria-label="Manifesto MAVA Studio">
+  <section id="manifesto" aria-label="Manifesto MAVA Studio" data-i18n-aria="manifesto">
     <div class="container">
       <div class="grid-2">
         <div class="manifesto__col">
-          <p class="manifesto__line reveal">E se a melhor ideia da sua coleção permanecesse invisível?</p>
-          <p class="manifesto__line reveal reveal--d1">Não porque ela não existia.</p>
-          <p class="manifesto__line reveal reveal--d2">Mas porque nunca chegou a ser explorada.</p>
-          <p class="manifesto__line reveal reveal--d3">O processo criativo é feito de escolhas.</p>
-          <p class="manifesto__line reveal reveal--d4">Mas nem todas as possibilidades se tornam visíveis durante o processo.</p>
-          <p class="manifesto__line reveal reveal--d5">Algumas ideias ganham forma. Outras permanecem apenas como intuição.</p>
-          <p class="manifesto__line reveal reveal--d6">A questão não é apenas criar.</p>
-          <p class="manifesto__line reveal reveal--d7">É conseguir explorar aquilo que ainda não pode ser visto.</p>
+          <p class="manifesto__line reveal" data-i18n="manifesto-1">E se a melhor ideia da sua coleção permanecesse invisível?</p>
+          <p class="manifesto__line reveal reveal--d1" data-i18n="manifesto-2">Não porque ela não existia.</p>
+          <p class="manifesto__line reveal reveal--d2" data-i18n="manifesto-3">Mas porque nunca chegou a ser explorada.</p>
+          <p class="manifesto__line reveal reveal--d3" data-i18n="manifesto-4">O processo criativo é feito de escolhas.</p>
+          <p class="manifesto__line reveal reveal--d4" data-i18n="manifesto-5">Mas nem todas as possibilidades se tornam visíveis durante o processo.</p>
+          <p class="manifesto__line reveal reveal--d5" data-i18n="manifesto-6">Algumas ideias ganham forma. Outras permanecem apenas como intuição.</p>
+          <p class="manifesto__line reveal reveal--d6" data-i18n="manifesto-7">A questão não é apenas criar.</p>
+          <p class="manifesto__line reveal reveal--d7" data-i18n="manifesto-8">É conseguir explorar aquilo que ainda não pode ser visto.</p>
         </div>
         <div class="manifesto__img-wrap reveal reveal--d2">
-          <img class="manifesto__img" src="manifesto.jpg" alt="Referência visual de coleção">
+          <img class="manifesto__img" src="manifesto.jpg" alt="Referência visual de coleção" data-i18n-alt="manifesto-img">
         </div>
       </div>
     </div>
   </section>
 
-  <section id="sobre" aria-label="Sobre a MAVA Studio">
+  <section id="sobre" aria-label="Sobre a MAVA Studio" data-i18n-aria="sobre">
     <div class="container">
       <div class="grid-2 grid-2--reverse">
         <div class="sobre__img-wrap reveal">
           <img class="sobre__img" src="sobre.jpg" alt="MAVA Studio">
         </div>
         <div class="sobre__col">
-          <span class="t-label sobre__label reveal">Por que conversar comigo?</span>
-          <p class="t-body sobre__p reveal reveal--d1">Depois de anos atuando entre desenvolvimento de produto e equipes criativas, percebi que os maiores desafios da moda raramente são apenas operacionais.</p>
-          <p class="t-body sobre__p reveal reveal--d2">Criar uma coleção exige repertório, contexto, sensibilidade e tomada de decisão.</p>
-          <p class="t-body sobre__p reveal reveal--d3">Ao longo desse processo, muitas possibilidades permanecem invisíveis, não por falta de criatividade, mas porque nem sempre conseguimos explorar tudo o que uma ideia pode se tornar.</p>
-          <p class="t-body sobre__p reveal reveal--d4">Foi a partir dessa observação que passei a incorporar a AI como parte do meu trabalho. Não como substituição do processo criativo. Mas como uma ferramenta para ampliar investigação, visualizar caminhos e aprofundar conceitos antes que eles se tornem decisões.</p>
-          <p class="t-body sobre__p reveal reveal--d5">Meu papel é ajudar pessoas criativas a explorar novas possibilidades para suas coleções, transformando ideias abstratas em direções visuais que podem ser analisadas, discutidas e desenvolvidas.</p>
+          <span class="t-label sobre__label reveal" data-i18n="sobre-label">Por que conversar comigo?</span>
+          <p class="t-body sobre__p reveal reveal--d1" data-i18n="sobre-1">Depois de anos atuando entre desenvolvimento de produto e equipes criativas, percebi que os maiores desafios da moda raramente são apenas operacionais.</p>
+          <p class="t-body sobre__p reveal reveal--d2" data-i18n="sobre-2">Criar uma coleção exige repertório, contexto, sensibilidade e tomada de decisão.</p>
+          <p class="t-body sobre__p reveal reveal--d3" data-i18n="sobre-3">Ao longo desse processo, muitas possibilidades permanecem invisíveis, não por falta de criatividade, mas porque nem sempre conseguimos explorar tudo o que uma ideia pode se tornar.</p>
+          <p class="t-body sobre__p reveal reveal--d4" data-i18n="sobre-4">Foi a partir dessa observação que passei a incorporar a AI como parte do meu trabalho. Não como substituição do processo criativo. Mas como uma ferramenta para ampliar investigação, visualizar caminhos e aprofundar conceitos antes que eles se tornem decisões.</p>
+          <p class="t-body sobre__p reveal reveal--d5" data-i18n="sobre-5">Meu papel é ajudar pessoas criativas a explorar novas possibilidades para suas coleções, transformando ideias abstratas em direções visuais que podem ser analisadas, discutidas e desenvolvidas.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="como-ajudo" aria-label="Como eu ajudo">
+  <section id="como-ajudo" aria-label="Como eu ajudo" data-i18n-aria="como-ajudo">
     <div class="container">
       <div class="como__header">
-        <h2 class="como__title reveal">Como eu ajudo</h2>
+        <h2 class="como__title reveal" data-i18n="como-title">Como eu ajudo</h2>
       </div>
       <div class="grid-2-2">
         <div class="como__card reveal">
-          <span class="t-label">Exploração Criativa</span>
-          <p class="t-body">A partir de uma ideia, tema ou direção inicial, investigo possibilidades visuais que ajudam a expandir o potencial criativo da coleção.</p>
+          <span class="t-label" data-i18n="como-1-label">Exploração Criativa</span>
+          <p class="t-body" data-i18n="como-1-body">A partir de uma ideia, tema ou direção inicial, investigo possibilidades visuais que ajudam a expandir o potencial criativo da coleção.</p>
         </div>
         <div class="como__card reveal reveal--d1">
-          <span class="t-label">Pesquisa e Construção de Repertório</span>
-          <p class="t-body">Transformo referências dispersas em narrativas visuais mais estruturadas, conectando conceitos, materiais, atmosferas e direções criativas.</p>
+          <span class="t-label" data-i18n="como-2-label">Pesquisa e Construção de Repertório</span>
+          <p class="t-body" data-i18n="como-2-body">Transformo referências dispersas em narrativas visuais mais estruturadas, conectando conceitos, materiais, atmosferas e direções criativas.</p>
         </div>
         <div class="como__card reveal reveal--d2">
-          <span class="t-label">Visualização Antecipada</span>
-          <p class="t-body">Ajudo estilistas e marcas a visualizar produtos, famílias, conceitos e cenários antes das etapas de desenvolvimento.</p>
+          <span class="t-label" data-i18n="como-3-label">Visualização Antecipada</span>
+          <p class="t-body" data-i18n="como-3-body">Ajudo estilistas e marcas a visualizar produtos, famílias, conceitos e cenários antes das etapas de desenvolvimento.</p>
         </div>
         <div class="como__card reveal reveal--d3">
-          <span class="t-label">Consultoria para Coleções e Equipes Criativas</span>
-          <p class="t-body">Apoio marcas e estilistas na incorporação da inteligência artificial como ferramenta de pesquisa, exploração e desenvolvimento criativo.</p>
+          <span class="t-label" data-i18n="como-4-label">Consultoria para Coleções e Equipes Criativas</span>
+          <p class="t-body" data-i18n="como-4-body">Apoio marcas e estilistas na incorporação da inteligência artificial como ferramenta de pesquisa, exploração e desenvolvimento criativo.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="cases" aria-label="Projetos">
+  <section id="cases" aria-label="Projetos" data-i18n-aria="cases">
     <div class="container">
       <div class="cases__header">
-        <h2 class="cases__title reveal">Projetos</h2>
+        <h2 class="cases__title reveal" data-i18n="cases-title">Projetos</h2>
       </div>
       <div class="grid-3">
         <article class="card reveal">
-          <img class="card__img" src="Pesquisa.png" alt="Pesquisa de coleção">
-          <p class="t-label card__label">Pesquisa de coleção</p>
-          <h3 class="card__name">De referência dispersa a direção visual coerente</h3>
-          <p class="t-body">A pesquisa de referências foi transformada em desenhos técnicos e simulações de tecidos nas principais bases da coleção, facilitando a visualização das ideias e tornando as decisões mais assertivas, sempre alinhadas ao conceito da coleção.</p>
+          <img class="card__img" src="Pesquisa.png" alt="Pesquisa de coleção" data-i18n-alt="case-1-label">
+          <p class="t-label card__label" data-i18n="case-1-label">Pesquisa de coleção</p>
+          <h3 class="card__name" data-i18n="case-1-name">De referência dispersa a direção visual coerente</h3>
+          <p class="t-body" data-i18n="case-1-body">A pesquisa de referências foi transformada em desenhos técnicos e simulações de tecidos nas principais bases da coleção, facilitando a visualização das ideias e tornando as decisões mais assertivas, sempre alinhadas ao conceito da coleção.</p>
         </article>
         <article class="card reveal reveal--d1">
-          <img class="card__img" src="visualização.png" alt="Visualização de produto">
-          <p class="t-label card__label">Visualização de produto</p>
-          <h3 class="card__name">Ver a peça antes de ela existir</h3>
-          <p class="t-body">Estampas, cores e variações foram aplicadas digitalmente em silhuetas e imagens de contexto, permitindo a validação pelo time comercial antes da produção e reduzindo a necessidade de protótipos físicos.</p>
+          <img class="card__img" src="visualização.png" alt="Visualização de produto" data-i18n-alt="case-2-label">
+          <p class="t-label card__label" data-i18n="case-2-label">Visualização de produto</p>
+          <h3 class="card__name" data-i18n="case-2-name">Ver a peça antes de ela existir</h3>
+          <p class="t-body" data-i18n="case-2-body">Estampas, cores e variações foram aplicadas digitalmente em silhuetas e imagens de contexto, permitindo a validação pelo time comercial antes da produção e reduzindo a necessidade de protótipos físicos.</p>
         </article>
         <article class="card reveal reveal--d2">
-          <img class="card__img" src="desenvolvimento.png" alt="Desenvolvimento criativo">
-          <p class="t-label card__label">Desenvolvimento criativo</p>
-          <h3 class="card__name">Construindo repertório para uma coleção conceitual</h3>
-          <p class="t-body">A pesquisa foi ampliada com o apoio de IA para explorar referências vintage, formas, volumes, materiais e acabamentos, fortalecendo o repertório criativo e apoiando o desenvolvimento de produtos com maior potencial de newness.</p>
+          <img class="card__img" src="desenvolvimento.png" alt="Desenvolvimento criativo" data-i18n-alt="case-3-label">
+          <p class="t-label card__label" data-i18n="case-3-label">Desenvolvimento criativo</p>
+          <h3 class="card__name" data-i18n="case-3-name">Construindo repertório para uma coleção conceitual</h3>
+          <p class="t-body" data-i18n="case-3-body">A pesquisa foi ampliada com o apoio de IA para explorar referências vintage, formas, volumes, materiais e acabamentos, fortalecendo o repertório criativo e apoiando o desenvolvimento de produtos com maior potencial de newness.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="contato" aria-label="Contato">
+  <section id="contato" aria-label="Contato" data-i18n-aria="contato">
     <div class="contato__inner">
-      <h2 class="contato__headline reveal">O que a sua próxima coleção ainda pode ser?</h2>
-      <p class="contato__sub reveal reveal--d1">Se você deseja explorar possibilidades, aprofundar conceitos e visualizar caminhos criativos antes que eles se tornem decisões, vamos conversar.</p>
-      <a href="https://wa.me/5548999104584" class="btn btn--white reveal reveal--d2" target="_blank" rel="noopener noreferrer" aria-label="Agendar uma conversa com a MAVA Studio">Agendar uma conversa</a>
+      <h2 class="contato__headline reveal" data-i18n="contato-headline">O que a sua próxima coleção ainda pode ser?</h2>
+      <p class="contato__sub reveal reveal--d1" data-i18n="contato-sub">Se você deseja explorar possibilidades, aprofundar conceitos e visualizar caminhos criativos antes que eles se tornem decisões, vamos conversar.</p>
+      <a href="https://wa.me/5548999104584" class="btn btn--white reveal reveal--d2" target="_blank" rel="noopener noreferrer" aria-label="Agendar uma conversa com a MAVA Studio" data-i18n="contato-cta" data-i18n-aria-self="contato-cta-aria">Agendar uma conversa</a>
     </div>
     <footer class="footer" role="contentinfo">
       <div class="container footer__inner">
         <span class="footer__copy t-label">© 2026 MAVA Studio</span>
         <div class="footer__social">
-          <a href="https://instagram.com/mavastudio" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="MAVA Studio no Instagram">
+          <a href="https://instagram.com/mavastudio" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="MAVA Studio no Instagram" data-i18n-aria-self="social-instagram">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
               <circle cx="12" cy="12" r="4"/>
               <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
             </svg>
           </a>
-          <a href="https://linkedin.com/company/mavastudio" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="MAVA Studio no LinkedIn">
+          <a href="https://linkedin.com/company/mavastudio" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="MAVA Studio no LinkedIn" data-i18n-aria-self="social-linkedin">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="3" ry="3"/>
               <line x1="8" y1="11" x2="8" y2="16"/>
@@ -620,6 +641,109 @@
         requestAnimationFrame(loop);
       })();
     }
+
+    const EN = {
+      'nav': 'Main',
+      'nav-projetos': 'Projects',
+      'hero': 'MAVA Studio Hero',
+      'hero-headline': 'Explore what your collection could still become.',
+      'hero-sub': 'Use AI to expand your creative process, revealing possibilities, visual directions and hypotheses that usually stay invisible.',
+      'hero-cta': 'Explore possibilities',
+      'manifesto': 'MAVA Studio Manifesto',
+      'manifesto-1': "What if the best idea in your collection stayed invisible?",
+      'manifesto-2': 'Not because it didn\'t exist.',
+      'manifesto-3': 'But because it was never explored.',
+      'manifesto-4': 'The creative process is made of choices.',
+      'manifesto-5': "But not every possibility becomes visible during the process.",
+      'manifesto-6': 'Some ideas take shape. Others remain only as intuition.',
+      'manifesto-7': "The question isn't just about creating.",
+      'manifesto-8': "It's being able to explore what can't yet be seen.",
+      'manifesto-img': 'Collection visual reference',
+      'sobre': 'About MAVA Studio',
+      'sobre-label': 'Why talk to me?',
+      'sobre-1': "After years working between product development and creative teams, I realized fashion's biggest challenges are rarely just operational.",
+      'sobre-2': 'Creating a collection requires repertoire, context, sensitivity and decision-making.',
+      'sobre-3': "Throughout this process, many possibilities remain invisible — not for lack of creativity, but because we can't always explore everything an idea could become.",
+      'sobre-4': "That observation is why I started incorporating AI into my work. Not as a replacement for the creative process. But as a tool to broaden research, visualize paths and deepen concepts before they become decisions.",
+      'sobre-5': 'My role is to help creative people explore new possibilities for their collections, turning abstract ideas into visual directions that can be analyzed, discussed and developed.',
+      'como-ajudo': 'How I help',
+      'como-title': 'How I help',
+      'como-1-label': 'Creative Exploration',
+      'como-1-body': "Starting from an idea, theme or initial direction, I investigate visual possibilities that help expand the collection's creative potential.",
+      'como-2-label': 'Research & Repertoire Building',
+      'como-2-body': 'I turn scattered references into more structured visual narratives, connecting concepts, materials, moods and creative directions.',
+      'como-3-label': 'Early Visualization',
+      'como-3-body': 'I help stylists and brands visualize products, families, concepts and scenarios before the development stages.',
+      'como-4-label': 'Consulting for Collections & Creative Teams',
+      'como-4-body': 'I support brands and stylists in incorporating artificial intelligence as a tool for research, exploration and creative development.',
+      'cases': 'Projects',
+      'cases-title': 'Projects',
+      'case-1-label': 'Collection research',
+      'case-1-name': 'From scattered references to a coherent visual direction',
+      'case-1-body': "Reference research was turned into technical drawings and fabric simulations for the collection's core pieces, making ideas easier to visualize and decisions sharper, always aligned with the collection's concept.",
+      'case-2-label': 'Product visualization',
+      'case-2-name': 'Seeing the piece before it exists',
+      'case-2-body': 'Prints, colors and variations were applied digitally to silhouettes and contextual images, allowing validation by the commercial team before production and reducing the need for physical prototypes.',
+      'case-3-label': 'Creative development',
+      'case-3-name': 'Building repertoire for a conceptual collection',
+      'case-3-body': 'Research was expanded with AI support to explore vintage references, shapes, volumes, materials and finishes, strengthening the creative repertoire and supporting product development with greater newness potential.',
+      'contato': 'Contact',
+      'contato-headline': 'What could your next collection still become?',
+      'contato-sub': "If you want to explore possibilities, deepen concepts and visualize creative paths before they become decisions, let's talk.",
+      'contato-cta': 'Schedule a conversation',
+      'contato-cta-aria': 'Schedule a conversation with MAVA Studio',
+      'social-instagram': 'MAVA Studio on Instagram',
+      'social-linkedin': 'MAVA Studio on LinkedIn',
+    };
+    const META = {
+      'pt-BR': { title: 'MAVA Studio', description: 'MAVA Studio — Antecipe direções visuais da sua coleção com IA.' },
+      'en': { title: 'MAVA Studio', description: 'MAVA Studio — Anticipate visual directions for your collection with AI.' },
+    };
+
+    const i18nEls = Array.from(document.querySelectorAll('[data-i18n]'))
+      .map(el => ({ el, key: el.dataset.i18n, pt: el.textContent }));
+    const i18nAriaEls = Array.from(document.querySelectorAll('[data-i18n-aria]'))
+      .map(el => ({ el, key: el.dataset.i18nAria, pt: el.getAttribute('aria-label') }));
+    const i18nAriaSelfEls = Array.from(document.querySelectorAll('[data-i18n-aria-self]'))
+      .map(el => ({ el, key: el.dataset.i18nAriaSelf, pt: el.getAttribute('aria-label') }));
+    const i18nAltEls = Array.from(document.querySelectorAll('[data-i18n-alt]'))
+      .map(el => ({ el, key: el.dataset.i18nAlt, pt: el.getAttribute('alt') }));
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+      const isEn = lang === 'en';
+      i18nEls.forEach(({ el, key, pt }) => { el.textContent = isEn ? (EN[key] || pt) : pt; });
+      i18nAriaEls.forEach(({ el, key, pt }) => { el.setAttribute('aria-label', isEn ? (EN[key] || pt) : pt); });
+      i18nAriaSelfEls.forEach(({ el, key, pt }) => { el.setAttribute('aria-label', isEn ? (EN[key] || pt) : pt); });
+      i18nAltEls.forEach(({ el, key, pt }) => { el.setAttribute('alt', isEn ? (EN[key] || pt) : pt); });
+      document.title = META[isEn ? 'en' : 'pt-BR'].title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', META[isEn ? 'en' : 'pt-BR'].description);
+      const langToggle = document.getElementById('langToggle');
+      langToggle.querySelector('[data-lang-label="pt-BR"]').classList.toggle('is-on', !isEn);
+      langToggle.querySelector('[data-lang-label="pt-BR"]').classList.toggle('is-off', isEn);
+      langToggle.querySelector('[data-lang-label="en"]').classList.toggle('is-on', isEn);
+      langToggle.querySelector('[data-lang-label="en"]').classList.toggle('is-off', !isEn);
+      langToggle.setAttribute('aria-pressed', String(isEn));
+      try { localStorage.setItem('mava-lang', lang); } catch (e) {}
+    }
+
+    let initialLang = 'pt-BR';
+    try {
+      const saved = localStorage.getItem('mava-lang');
+      if (saved === 'en' || saved === 'pt-BR') {
+        initialLang = saved;
+      } else if ((navigator.language || '').toLowerCase().startsWith('pt')) {
+        initialLang = 'pt-BR';
+      } else if (navigator.language) {
+        initialLang = 'en';
+      }
+    } catch (e) {}
+    applyLang(initialLang);
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      applyLang(document.documentElement.lang === 'en' ? 'pt-BR' : 'en');
+    });
 
     const nav = document.getElementById('nav');
     const heroPhoto = document.querySelector('.hero__photo');
